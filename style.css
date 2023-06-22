@@ -17,6 +17,7 @@ header {
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 70px;
 }
 
 .greencath1 {
@@ -24,32 +25,102 @@ header {
     font-size: 18vw;
     color: green;
     line-height: 1;
+
+    transition: ease-out 0.5s;
+    clip-path: polygon(100% 0, 0 0, 0 0, 100% 0);
+    animation: animh1 1s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+@keyframes animh1 {
+    0% {
+      clip-path: polygon(100% 0, 0 0, 0 0, 100% 0);
+      transform: translateY(150px);
+      opacity: 0;
+    }
+
+    100% {
+      clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+      transform: translateY(0px);
+      opacity: 1;
+
+    }
+  }
+
+  .greencath1n2 {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: hotpink;
+    mix-blend-mode: difference;
+    opacity: 0;
 }
 
 .desch1 {
     color: green;
+
+    transition: ease-out 0.5s;
+    clip-path: polygon(100% 0, 0 0, 0 0, 100% 0);
+    animation: animDESCH1 1s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
+}
+
+@keyframes animDESCH1 {
+    0% {
+        clip-path: polygon(100% 0, 0 0, 0 0, 100% 0);
+        transform: translateY(150px);
+        opacity: 0;
+      }
+  
+      100% {
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        transform: translateY(0px);
+        opacity: 1;
+  
+      }
 }
 
 svg {
     margin-top: 70vh;
     position: absolute;
+
+    transition: ease 0.5s;
+    opacity: 0;
+    animation: animsvg 2s infinite 2.2s;
+}
+
+@keyframes animsvg {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+  
+      50% {
+        transform: translateY(15px);
+      }
+
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+  
 }
 
 img {
     width: 60%;
-    transition: ease 0.5s;
+    transition: ease 0.1s;
 }
 
 .parentgallery {
     display: flex;
     flex-flow: column;
-    gap: 150px;
+    gap: 200px;
 }
 
 .left {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
+    
 }
 
 .right {
@@ -58,9 +129,17 @@ img {
     align-items: flex-end;
 }
 
-.pgym {
+.pleft, .pright {
     line-height: 3;
+    font-size: 19px;
+}
 
+.pleft {
+    margin-left: 5%;
+}
+
+.pright {
+    margin-right: 5%;
 }
 
 footer {
