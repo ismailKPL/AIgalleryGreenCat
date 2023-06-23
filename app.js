@@ -10,30 +10,122 @@ window.addEventListener("scroll", () => {
       }
   });
 
-const imgGym = document.querySelector(".imggym")
-
-window.addEventListener("scroll", () => {
-    console.log(window.scrollY);
+  const imgfight = document.querySelector(".imgfight");
+  const imgplay = document.querySelector(".imgplay");
+  const imggym = document.querySelector(".imggym");
+  const imgjob = document.querySelector(".imgjob");
+  const card = document.querySelector(".card");
+  const images = document.querySelectorAll(".img");
   
-    if (window.scrollY > 100 && window.scrollY < 200) {
-        imgGym.style.width = "60%";
-      }
-      else if (window.scrollY > 200 && window.scrollY < 300) {
-        imgGym.style.width = "55%";
-      }
-      else if (window.scrollY > 300 && window.scrollY < 400) {
-        imgGym.style.width = "50%";
-      }else if (window.scrollY > 400 && window.scrollY < 1100) {
-        imgGym.style.width = "45%";
-      } else if (window.scrollY > 1100 && window.scrollY < 1200) {
-        imgGym.style.width = "50%";
-      }else if (window.scrollY > 1200 && window.scrollY < 1300) {
-        imgGym.style.width = "55%";
-      }
-      else if (window.scrollY > 1300 && window.scrollY < 1400) {
-        imgGym.style.width = "60%";
-      }
-    //    else {
-    //     imgGym.style.width = "70%";
-    //   }
+  //img fight
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight } = document.documentElement;
+  
+    const topElementToTopViewport = imgfight.getBoundingClientRect().top;
+  
+    if (
+      scrollTop >
+      (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0.8
+    ) {
+      imgfight.classList.add("active");
+    }
+  });
+  
+// img play
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight } = document.documentElement;
+  
+    const topElementToTopViewport = imgplay.getBoundingClientRect().top;
+  
+    if (
+      scrollTop >
+      (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0.8
+    ) {
+      imgplay.classList.add("active");
+    }
+  });
+
+  //img gym
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight } = document.documentElement;
+  
+    const topElementToTopViewport = imggym.getBoundingClientRect().top;
+  
+    if (
+      scrollTop >
+      (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0.8
+    ) {
+      imggym.classList.add("active");
+    }
+  });
+
+//img job
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight } = document.documentElement;
+  
+    const topElementToTopViewport = imgjob.getBoundingClientRect().top;
+  
+    if (
+      scrollTop >
+      (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0.8
+    ) {
+      imgjob.classList.add("active");
+    }
+  });
+
+
+  
+  images.forEach((image) => {
+    image.addEventListener("click", () => {
+      card.innerHTML = `<img class="imgcard" src="${image.src}" alt="${image.alt}"> <p class="pCard">${image.alt}</p>`;
+      card.style.visibility = "visible";
+      document.body.style.overflowY = "hidden";
+  
+      const imgcard = document.querySelector(".imgcard");
+      card.addEventListener("click", () => {
+        card.innerHTML = "";
+        card.style.visibility = "hidden";
+        document.body.style.overflowY = "auto";
+      });
+    });
+  });
+  
+
+
+const cursor = document.getElementById("mousepointer");
+const imgs = document.querySelectorAll('img');
+const h1Elements = document.querySelectorAll('h1');
+
+window.addEventListener("mousemove", function(e) {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+  });
+
+  imgs.forEach(img => {
+  img.addEventListener('mouseover', () => {
+    cursor.style.backgroundColor = '#858585';
+    cursor.style.width = "80px";
+    cursor.style.height = "80px";
+
+  });
+  
+  img.addEventListener('mouseout', () => {
+    cursor.style.backgroundColor = 'white';
+    cursor.style.width = "20px"
+    cursor.style.height = "20px"
+  });
+});
+
+
+
+  h1Elements.forEach(h1 => {
+    h1.addEventListener('mouseover', () => {
+      cursor.style.width = '80px';
+      cursor.style.height = '80px';
+    });
+  
+    h1.addEventListener('mouseout', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+    });
   });
