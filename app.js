@@ -92,31 +92,35 @@ window.addEventListener("scroll", () => {
   
 
 
-const cursor = document.getElementById("mousepointer");
-const imgs = document.querySelectorAll('img');
-const h1Elements = document.querySelectorAll('h1');
+const cursor = document.querySelector('.cursor');
 
-window.addEventListener("mousemove", function(e) {
-    cursor.style.left = e.pageX + "px";
-    cursor.style.top = e.pageY + "px";
-  });
+document.addEventListener('mousemove', function(e){
+  let x = e.clientX;
+  let y = e.clientY;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+});
+
+document.addEventListener('mousemove', function(e){
+  let x = e.clientX;
+  let y = e.clientY;
+});
+
+const imgs = document.querySelectorAll('img');
 
   imgs.forEach(img => {
   img.addEventListener('mouseover', () => {
-    cursor.style.backgroundColor = '#858585';
     cursor.style.width = "80px";
     cursor.style.height = "80px";
 
   });
   
   img.addEventListener('mouseout', () => {
-    cursor.style.backgroundColor = 'white';
     cursor.style.width = "20px"
     cursor.style.height = "20px"
   });
 });
 
-
+const h1Elements = document.querySelectorAll('h1');
 
   h1Elements.forEach(h1 => {
     h1.addEventListener('mouseover', () => {
