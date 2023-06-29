@@ -4,6 +4,28 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background: green;
+    color: white;
+}
+
+::-webkit-scrollbar{
+    background-color: rgb(193, 193, 193);
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgba(0, 128, 0, 0.386);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(0, 128, 0, 0.703);
+}
+
+::-webkit-scrollbar-thumb:active{
+    background: green;
+}
+
 body {
     background: url(imgs/diamond-sunset.png);
     font-family: 'Cabinet Grotesk', sans-serif;
