@@ -5,8 +5,11 @@ window.addEventListener("scroll", () => {
 
   if (window.scrollY > 500) {
     title2.style.opacity = "1";
+    title2.style.transform = "translateY(0px)";
+
   } else {
     title2.style.opacity = "0";
+    title2.style.transform = "translateY(15px)";
   }
 });
 
